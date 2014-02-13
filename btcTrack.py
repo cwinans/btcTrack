@@ -1,4 +1,6 @@
-import re
+#!/usr/bin/python
+
+import re, sys, os
 import urllib2
 from datetime import datetime
 
@@ -15,7 +17,7 @@ def main():
         collectionDatTime = datetime.utcnow().strftime('%Y%m%d%H%M')
 
         # append to CSV file
-        f = open('btcTrack.csv', 'a')
+        f = open(os.path.dirname(os.path.abspath(sys.argv[0]))+'/btcTrack.csv', 'a')
         f.write(collectionDatTime+','+currentPrice+'\n')
         f.close()
 
